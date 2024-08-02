@@ -1,0 +1,40 @@
+﻿@model IEnumerable<BookContact.Models.AuthorDto>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List of Authors</h2>
+
+<p>
+    @Html.ActionLink("Create New Author", "New")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AuthorName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Biography)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AuthorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Biography)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.AuthorId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.AuthorId }) |
+                @Html.ActionLink("Delete", "ConfirmDelete", new { id = item.AuthorId })
+            </td>
+        </tr>
+    }
+
+</table>

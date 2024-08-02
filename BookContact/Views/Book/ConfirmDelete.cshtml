@@ -1,0 +1,69 @@
+﻿@model BookContact.Models.BookDto
+
+@{
+    ViewBag.Title = "ConfirmDelete";
+}
+
+<h2>ConfirmDelete</h2>
+
+<h3>Are you sure you want to delete this Book?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Author Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AuthorName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ISBN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ISBN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BorrowingDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BorrowingDate)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm("Delete", "Book", new { id = Model.BookId }, FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "List")
+        </div>
+    }
+
+    @*<form action="/Book/Delete/@Model.BookId" method="post">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "List")
+        </form>*@
+</div>

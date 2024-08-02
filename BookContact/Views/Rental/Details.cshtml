@@ -1,0 +1,57 @@
+﻿@model BookContact.Models.RentalDto
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Rental Details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Book Title
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ISBN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ISBN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RentalDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RentalDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DueDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DueDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RentalAvailable)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RentalAvailable)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RentalId }) |
+    @Html.ActionLink("Back to List", "List")
+</p>
