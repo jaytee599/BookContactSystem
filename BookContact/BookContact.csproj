@@ -193,17 +193,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202407290151005_InitialCreate.cs" />
-    <Compile Include="Migrations\202407290151005_InitialCreate.Designer.cs">
-      <DependentUpon>202407290151005_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202407290153044_Update.cs" />
-    <Compile Include="Migrations\202407290153044_Update.Designer.cs">
-      <DependentUpon>202407290153044_Update.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202407301002149_contact.cs" />
-    <Compile Include="Migrations\202407301002149_contact.Designer.cs">
-      <DependentUpon>202407301002149_contact.cs</DependentUpon>
+    <Compile Include="Migrations\202408021642573_InitialCreate.cs" />
+    <Compile Include="Migrations\202408021642573_InitialCreate.Designer.cs">
+      <DependentUpon>202408021642573_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -320,14 +312,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202407290151005_InitialCreate.resx">
-      <DependentUpon>202407290151005_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202407290153044_Update.resx">
-      <DependentUpon>202407290153044_Update.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202407301002149_contact.resx">
-      <DependentUpon>202407301002149_contact.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202408021642573_InitialCreate.resx">
+      <DependentUpon>202408021642573_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

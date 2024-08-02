@@ -13,7 +13,7 @@ namespace BookContact.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202407290151005_InitialCreate"; }
+            get { return "202408021642573_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source
