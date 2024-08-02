@@ -9,13 +9,17 @@
                 <div class="col-xl-9">
                     <div class="text-center text-white">
                         <h1 class="mb-5">Welcome to BookContact</h1>
-                        <ul class="nav navbar-nav">
-                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                            <li>@Html.ActionLink("Authors", "List", "Author", new { area = "" }, new { @class = "nav-link" })</li>
-                            <li>@Html.ActionLink("Books", "List", "Book", new { area = "" }, new { @class = "nav-link" })</li>
-                            <li>@Html.ActionLink("Rentals", "List", "Rental", new { area = "" }, new { @class = "nav-link" })</li>
-                            <li>@Html.ActionLink("Contacts", "List", "Contact", new { area = "" }, new { @class = "nav-link" })</li>
-                        </ul>
+                        <div class="justify-content-center">
+                            <ul class="nav navbar-nav">
+                                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                                <li>@Html.ActionLink("Authors", "List", "Author", new { area = "" }, new { @class = "nav-link" })</li>
+                                <li>@Html.ActionLink("Books", "List", "Book", new { area = "" }, new { @class = "nav-link" })</li>
+                                <li>@Html.ActionLink("Rentals", "List", "Rental", new { area = "" }, new { @class = "nav-link" })</li>
+                                <li>@Html.ActionLink("Contacts", "List", "Contact", new { area = "" }, new { @class = "nav-link" })</li>
+                            </ul>
+
+                        </div>
+                        
                     </div>
                 </div>
             </div>
