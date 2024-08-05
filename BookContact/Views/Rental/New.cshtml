@@ -9,27 +9,7 @@
 <form action="/Rental/Create" method="post">
 
     <div class="mt-3">
-        <label for="form-label">ISBN</label>
-        <input type="text" class="form-control" name="ISBN" />
-    </div>
-
-    <div class="mt-3">
-        <label for="form-label">Rental Date</label>
-        <input type="date" class="form-control" name="RentalDate" />
-    </div>
-
-    <div class="mt-3">
-        <label for="form-label">Due Date</label>
-        <input type="date" class="form-control" name="DueDate" />
-    </div>
-
-    <div class="mt-3">
-        <label for="form-label">Rental Available?</label>
-        <input type="checkbox" class="" name="RentalAvailable" />
-    </div>
-
-    <div class="mt-3">
-        <label>Book</label>
+        <label for="form-label">Select Book</label>
         <select name="BookID" class="form-control">
             @foreach (var book in Model)
             {
@@ -42,6 +22,36 @@
             <a class="" href="@Url.Action("New", "Book")">Click here to add a book</a>
         </p>
     </div>
+
+    @*<div class="mt-3">
+        <label for="form-label">Select ISBN</label>
+        <select name="ISBN" class="form-control">
+            @foreach (var book in Model)
+            {
+                <option value="@book.ISBN">@book.ISBN</option>
+
+            }
+        </select>
+        <p>
+            NB: If no ISBN is available
+            <a class="" href="@Url.Action("New", "Book")">Click here to add a book</a>
+        </p>
+    </div>*@
+
+    <div class="mt-3">
+        <label for="form-label">Rental Date</label>
+        <input type="date" class="form-control" name="RentalDate" />
+    </div>
+
+    <div class="mt-3">
+        <label for="form-label">Due Date</label>
+        <input type="date" class="form-control" name="DueDate" />
+    </div>
+
+    @*<div class="mt-3">
+        <label for="form-label">Rental Available?</label>
+        <input type="checkbox" class="" name="RentalAvailable" />
+    </div>*@
 
     <div class="mt-3">
         <button type="submit" class="btn btn-primary">

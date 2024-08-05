@@ -1,4 +1,5 @@
 ﻿using BookContact.Models;
+using BookContact.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -55,11 +56,22 @@ namespace BookContact.Controllers
         // GET: Contact/Create
         public ActionResult New()
         {
-            string url = "contactdata/listcontacts";
+            string url = "authordata/listauthors";
+            string urlRental = "rentaldata/listrentals";
             HttpResponseMessage response = client.GetAsync(url).Result;
-            IEnumerable<ContactDto> ContactOptions = response.Content.ReadAsAsync<IEnumerable<ContactDto>>().Result;
+            HttpResponseMessage rentalResponse = client.GetAsync(urlRental).Result;
+            IEnumerable<AuthorDto> AuthorOptions = response.Content.ReadAsAsync<IEnumerable<AuthorDto>>().Result;
+            IEnumerable<RentalDto> RentalOptions = rentalResponse.Content.ReadAsAsync<IEnumerable<RentalDto>>().Result;
 
-            return View(ContactOptions);
+            var contactDto = new ContactDto();
+            var viewModel = new DetailsContact
+            {
+                Contact = contactDto,
+                AuthorOption = AuthorOptions,
+                RentalOption = RentalOptions
+            };
+
+            return View(viewModel);
         }
 
         // POST: Contact/Create

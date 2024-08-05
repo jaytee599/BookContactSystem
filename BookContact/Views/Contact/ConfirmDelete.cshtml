@@ -6,9 +6,8 @@
 
 <h2>ConfirmDelete</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Are you sure you want to delete this Contact?</h3>
 <div>
-    <h4>Contact</h4>
     <hr />
     <dl class="dl-horizontal">
 
@@ -62,7 +61,8 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm("Delete", "Contact", new { id = Model.ContactId}, FormMethod.Post)) 
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">

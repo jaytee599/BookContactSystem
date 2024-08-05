@@ -16,16 +16,10 @@
             @*@Html.DisplayNameFor(model => model.Book.Title)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ISBN)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.RentalDate)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.DueDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RentalAvailable)
         </th>
         <th></th>
     </tr>
@@ -37,16 +31,10 @@
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ISBN)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.RentalDate)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.DueDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RentalAvailable)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.RentalId }) |

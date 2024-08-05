@@ -10,13 +10,26 @@
                     <div class="text-center text-white">
                         <h1 class="mb-5">Welcome to BookContact</h1>
                         <div class="flex justify-content-center">
-                            <ul class="">
-                                <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                                <li>@Html.ActionLink("Authors", "List", "Author", new { area = "" }, new { @class = "nav-link" })</li>
-                                <li>@Html.ActionLink("Books", "List", "Book", new { area = "" }, new { @class = "nav-link" })</li>
-                                <li>@Html.ActionLink("Rentals", "List", "Rental", new { area = "" }, new { @class = "nav-link" })</li>
-                                <li>@Html.ActionLink("Contacts", "List", "Contact", new { area = "" }, new { @class = "nav-link" })</li>
-                            </ul>
+                            @*<div class="flex justify-content-center mb-5">
+                                <div>
+                                    <a href="@Url.Action("Authors", "List", "Author")" class="btn btn-primary btn-md active" role="button">
+                                        Browse Authors
+                                    </a>
+                                </div>
+                                <div class="px-2">
+                                    <a href="@Url.Action("Books", "New", "Book")" class="btn btn-success btn-md active" role="button">
+                                        Publish Books
+                                    </a>
+                                </div>
+                                <a href="@Url.Action("Rentals", "New", "Rental")" class="btn btn-danger btn-md active" role="button">
+                                    Rent a Book
+                                </a>
+                                <div class="px-2">
+                                    <a href="@Url.Action("Contacts", "List", "Contact")" class="btn btn-info btn-md active" role="button">
+                                        Browse Contacts
+                                    </a>
+                                </div>
+                            </div>*@
                         </div>
                     </div>
                 </div>
