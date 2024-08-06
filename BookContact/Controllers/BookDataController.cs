@@ -84,18 +84,15 @@ namespace BookContact.Controllers
             }
             catch (DbUpdateConcurrencyException ex)
             {
-                var innerException = ex.InnerException;
-                Debug.WriteLine($"DbUpdateException occurred: {innerException.Message}");
-                throw;
 
-                //if (!BookExists(id))
-                //{
-                //    return NotFound();
-                //}
-                //else
-                //{
-                //    throw;
-                //}
+                if (!BookExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
             }
 
             return StatusCode(HttpStatusCode.NoContent);

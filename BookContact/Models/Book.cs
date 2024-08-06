@@ -12,7 +12,7 @@ namespace BookContact.Models
         [Key]
         public int BookId { get; set; }
 
-        [Required(ErrorMessage = "Please enter the name of the book")]
+        //[Required(ErrorMessage = "Please enter the title of the book")]
         public string Title { get; set; }
         public string ISBN { get; set; }
         public decimal Price { get; set; }
