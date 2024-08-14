@@ -70,7 +70,7 @@
             <select name="RentalId" class="form-control">
                 @foreach (var rental in Model.RentalOption)
                 {
-                    <option value="@rental.RentalId">@rental.RentalId</option>
+                    <option value="@rental.RentalId">@rental.Title</option>
 
                 }
             </select>

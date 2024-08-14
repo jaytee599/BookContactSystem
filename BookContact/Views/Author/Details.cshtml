@@ -1,4 +1,4 @@
-﻿@model BookContact.Models.AuthorDto
+﻿@model BookContact.Models.ViewModels.DetailsAuthor
 
 @{
     ViewBag.Title = "View";
@@ -11,24 +11,36 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.AuthorName)
+            @Html.DisplayNameFor(model => model.SelectedAuthor.AuthorName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.AuthorName)
+            @Html.DisplayFor(model => model.SelectedAuthor.AuthorName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Biography)
+            @Html.DisplayNameFor(model => model.SelectedAuthor.Biography)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Biography)
+            @Html.DisplayFor(model => model.SelectedAuthor.Biography)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.AuthorId }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SelectedAuthor.AuthorId }) |
     @Html.ActionLink("Back to List", "List")
 </p>
+
+<div>
+    <h3>Books related to this Author</h3>
+    <ul>
+        @foreach (var book in Model.RelatedBooks)
+        {
+            <li>
+                <a href="@book.BookId">@book.Title</a>
+            </li>
+        }
+    </ul>
+</div>

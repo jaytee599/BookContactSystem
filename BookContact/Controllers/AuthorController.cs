@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Web;
 using System.Web.Mvc;
+using BookContact.Models.ViewModels;
 using System.Web.Script.Serialization;
 
 namespace BookContact.Controllers
@@ -25,14 +26,14 @@ namespace BookContact.Controllers
             };
 
             client = new HttpClient(handler);
-            client.BaseAddress = new Uri("https://localhost:44324/api/authordata/");
+            client.BaseAddress = new Uri("https://localhost:44324/api/");
         }
 
         // GET: Author/List
         public ActionResult List()
         {
             //curl "https://localhost:44324/api/authordata/listauthors"
-            string url = "listauthors";
+            string url = "authordata/listauthors";
             HttpResponseMessage response = client.GetAsync(url).Result;
             IEnumerable<AuthorDto> authors = response.Content.ReadAsAsync<IEnumerable<AuthorDto>>().Result;
 
@@ -42,11 +43,22 @@ namespace BookContact.Controllers
         // GET: Author/Details/5
         public ActionResult Details(int id)
         {
-            string url = "findauthor/" + id;
+            DetailsAuthor ViewModel = new DetailsAuthor();
+
+            string url = "authordata/findauthor/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
             AuthorDto selectedAuthor = response.Content.ReadAsAsync<AuthorDto>().Result;
 
-            return View(selectedAuthor);
+            ViewModel.SelectedAuthor = selectedAuthor;
+
+            //showcase info about books related to this author
+            //send a request to gather info about books related to a particular author ID
+            url = "bookdata/listbooksforauthors/" + id;
+            response = client.GetAsync(url).Result;
+            IEnumerable<BookDto> RelatedBooks = response.Content.ReadAsAsync<IEnumerable<BookDto>>().Result;
+            ViewModel.RelatedBooks = RelatedBooks;
+
+            return View(ViewModel);
         }
 
         public ActionResult Error()
@@ -64,7 +76,7 @@ namespace BookContact.Controllers
         [HttpPost]
         public ActionResult Create(Author author)
         {
-            string url = "addauthor";
+            string url = "authordata/addauthor";
             string jsonpayload = jss.Serialize(author);
             HttpContent content = new StringContent(jsonpayload);
             content.Headers.ContentType.MediaType = "application/json";
@@ -82,7 +94,7 @@ namespace BookContact.Controllers
         // GET: Author/Edit/5
         public ActionResult Edit(int id)
         {
-            string url = "findauthor/" + id;
+            string url = "authordata/findauthor/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
             AuthorDto selectedAuthor = response.Content.ReadAsAsync<AuthorDto>().Result;
 
@@ -93,7 +105,7 @@ namespace BookContact.Controllers
         [HttpPost]
         public ActionResult Update(int id, Author author)
         {
-            string url = "updateauthor/" + id;
+            string url = "authordata/updateauthor/" + id;
             string jsonpayload = jss.Serialize(author);
             HttpContent content = new StringContent(jsonpayload);
             content.Headers.ContentType.MediaType = "application/json";
@@ -112,7 +124,7 @@ namespace BookContact.Controllers
         // GET: Author/Delete/5
         public ActionResult ConfirmDelete(int id)
         {
-            string url = "findauthor/" + id;
+            string url = "authordata/findauthor/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
             AuthorDto selectedAuthor = response.Content.ReadAsAsync<AuthorDto>().Result;
 
@@ -123,7 +135,7 @@ namespace BookContact.Controllers
         [HttpPost]
         public ActionResult Delete(int id)
         {
-            string url = "deleteauthor/" + id;
+            string url = "authordata/deleteauthor/" + id;
             HttpContent content = new StringContent("");
             content.Headers.ContentType.MediaType = "application/json";
             HttpResponseMessage response = client.PostAsync(url, content).Result;

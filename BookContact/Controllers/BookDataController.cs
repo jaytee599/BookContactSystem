@@ -36,6 +36,25 @@ namespace BookContact.Controllers
             return Ok(BookDtos);
         }
 
+        // GET: api/BookData/ListBooksForAuthors
+        [HttpGet]
+        [ResponseType(typeof(BookDto))]
+        public IHttpActionResult ListBooksForAuthors(int id)
+        {
+            List<Book> Books = db.Books.Where(a => a.AuthorId == id).ToList();
+            List<BookDto> BookDtos = new List<BookDto>();
+            Books.ForEach(a => BookDtos.Add(new BookDto()
+            {
+                BookId = a.BookId,
+                Title = a.Title,
+                ISBN = a.ISBN,
+                Price = a.Price,
+                BorrowingDate = a.BorrowingDate,
+                AuthorName = a.Author.AuthorName,
+            }));
+            return Ok(BookDtos);
+        }
+
         // GET: api/BookData/FindBook/5
         [ResponseType(typeof(BookDto))]
         [HttpGet]
