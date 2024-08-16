@@ -15,6 +15,9 @@ curl https://localhost:44324/api/authordata/listauthors
 Get a Single Author 
 curl https://localhost:44324/api/authordata/findauthor/{id}
 
+Get a List of Contacts 
+curl https://localhost:44324/api/contactdata/listcontacts
+
 Get a List of Books 
 curl https://localhost:44324/api/bookdata/listbooks
 
