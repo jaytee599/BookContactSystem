@@ -1,0 +1,41 @@
+﻿@model BookContact.Models.ReviewDto
+
+@{
+    ViewBag.Title = "Review Details";
+}
+
+<h2>Review Details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Reviews)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Reviews)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comments)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ReviewId }) |
+    @Html.ActionLink("Back to List", "List")
+</p>

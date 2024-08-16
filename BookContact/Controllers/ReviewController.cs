@@ -42,7 +42,11 @@ namespace BookContact.Controllers
         // GET: Review/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            string url = "reviewdata/findreview/" + id;
+            HttpResponseMessage response = client.GetAsync(url).Result;
+            ReviewDto selectedReview = response.Content.ReadAsAsync<ReviewDto>().Result;
+
+            return View(selectedReview);
         }
 
          public ActionResult Error()
@@ -53,7 +57,11 @@ namespace BookContact.Controllers
         // GET: Review/New
         public ActionResult New()
         {
-            return View();
+            string url = "bookdata/listbooks";
+            HttpResponseMessage response = client.GetAsync(url).Result;
+            IEnumerable<BookDto> BookOptions = response.Content.ReadAsAsync<IEnumerable<BookDto>>().Result;
+
+            return View(BookOptions);
         }
 
         // POST: Review/Create

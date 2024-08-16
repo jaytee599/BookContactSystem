@@ -361,6 +361,10 @@
     <Content Include="Views\Contact\New.cshtml" />
     <Content Include="Views\Review\List.cshtml" />
     <Content Include="Views\Review\New.cshtml" />
+    <Content Include="Views\Review\ConfirmDelete.cshtml" />
+    <Content Include="Views\Review\Details.cshtml" />
+    <Content Include="Views\Review\Error.cshtml" />
+    <Content Include="Views\Review\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
