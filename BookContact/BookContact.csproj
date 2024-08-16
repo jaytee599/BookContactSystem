@@ -191,6 +191,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RentalController.cs" />
     <Compile Include="Controllers\RentalDataController.cs" />
+    <Compile Include="Controllers\ReviewDataController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -201,6 +202,10 @@
     <Compile Include="Migrations\202408061039192_Update.cs" />
     <Compile Include="Migrations\202408061039192_Update.Designer.cs">
       <DependentUpon>202408061039192_Update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202408161650205_Review_Commit.cs" />
+    <Compile Include="Migrations\202408161650205_Review_Commit.Designer.cs">
+      <DependentUpon>202408161650205_Review_Commit.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -346,6 +351,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Review\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -356,6 +362,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202408061039192_Update.resx">
       <DependentUpon>202408061039192_Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202408161650205_Review_Commit.resx">
+      <DependentUpon>202408161650205_Review_Commit.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

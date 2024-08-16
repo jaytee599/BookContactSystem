@@ -41,5 +41,7 @@ namespace BookContact.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<BookContact.Models.Review> Reviews { get; set; }
     }
 }
