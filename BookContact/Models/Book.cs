@@ -23,6 +23,7 @@ namespace BookContact.Models
         public virtual Author Author { get; set; }
 
         public ICollection<Rental> Rentals { get; set; }
+        public ICollection<Review> Reviews { get; set; }
     }
 
     public class BookDto

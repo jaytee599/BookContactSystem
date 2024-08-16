@@ -212,6 +212,10 @@
     <Compile Include="Migrations\202408162147347_Review_Update.Designer.cs">
       <DependentUpon>202408162147347_Review_Update.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202408162221261_ReviewToBook.cs" />
+    <Compile Include="Migrations\202408162221261_ReviewToBook.Designer.cs">
+      <DependentUpon>202408162221261_ReviewToBook.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Author.cs" />
@@ -356,6 +360,7 @@
     <Content Include="Views\Contact\Edit.cshtml" />
     <Content Include="Views\Contact\New.cshtml" />
     <Content Include="Views\Review\List.cshtml" />
+    <Content Include="Views\Review\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -375,6 +380,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202408162147347_Review_Update.resx">
       <DependentUpon>202408162147347_Review_Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202408162221261_ReviewToBook.resx">
+      <DependentUpon>202408162221261_ReviewToBook.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

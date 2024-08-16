@@ -1,0 +1,49 @@
+﻿@model IEnumerable<BookContact.Models.BookDto>
+
+@{
+    ViewBag.Title = "New Review";
+}
+
+<h2>Write a Review</h2>
+
+
+<form action="/Review/Create" method="post">
+    <div class="form-group">
+        <label>Select a Book</label>
+        <select name="BookId" class="form-control">
+            @foreach (var book in Model)
+            {
+                <option value="@book.BookId">@book.Title</option>
+
+            }
+        </select>
+        <p>
+            NB: If no Book is available
+            <a class="" href="@Url.Action("New", "Book")">Click here to add a Book</a>
+        </p>
+    </div>
+
+    <div class="form-group">
+        <label for="form-label">Review</label>
+        <input type="text" class="form-control" name="Reviews" />
+    </div>
+
+    <div class="form-group">
+        <label for="form-label">Comment</label>
+        <input type="text" class="form-control" name="Comments" />
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</form>
+
+<div>
+    @Html.ActionLink("Back to List", "List")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -15,6 +15,7 @@ namespace BookContact.Models
         public virtual ICollection<Contact> Contacts { get; set; }
         public virtual ICollection<Rental> Rentals  { get; set; }
         public virtual ICollection<Book> Books { get; set; }
+        public virtual ICollection<Review> Reviews { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
@@ -36,12 +37,12 @@ namespace BookContact.Models
         public DbSet<Rental> Rentals { get; set; }
         public DbSet<Author> Authors { get; set; }
         public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Review> Reviews { get; set; }
 
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
         }
 
-        public System.Data.Entity.DbSet<BookContact.Models.Review> Reviews { get; set; }
     }
 }
