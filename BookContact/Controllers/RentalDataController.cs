@@ -35,6 +35,25 @@ namespace BookContact.Controllers
             return Ok(RentalDtos);
         }
 
+        // GET: api/RentalData/ListRentalsForBooks
+        [HttpGet]
+        [ResponseType(typeof(RentalDto))]
+        public IHttpActionResult ListRentalsForBooks(int id)
+        {
+            List<Rental> Rentals = db.Rentals.Where(a => a.BookId == id).ToList();
+            List<RentalDto> RentalDtos = new List<RentalDto>();
+            Rentals.ForEach(a => RentalDtos.Add(new RentalDto()
+            {
+                RentalId = a.RentalId,
+                ISBN = a.ISBN,
+                RentalDate = a.RentalDate,
+                DueDate = a.DueDate,
+                RentalAvailable = a.RentalAvailable,
+                Title = a.Book.Title,
+            }));
+            return Ok(RentalDtos);
+        }
+
         // GET: api/RentalData/FindRental/5
         [ResponseType(typeof(RentalDto))]
         [HttpGet]

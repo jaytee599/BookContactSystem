@@ -7,5 +7,7 @@ namespace BookContact.Models.ViewModels
 {
     public class DetailsBook
     {
+        public BookDto SelectedBook {  get; set; }
+        public IEnumerable<RentalDto> RentedBooks { get; set;}
     }
 }

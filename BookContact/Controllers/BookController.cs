@@ -62,6 +62,7 @@ namespace BookContact.Controllers
         // GET: Book/Details/5
         public ActionResult Details(int id)
         {
+            DetailsBook ViewModel = new DetailsBook();
 
             string url = "bookdata/findbook/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
@@ -70,7 +71,15 @@ namespace BookContact.Controllers
             Debug.WriteLine("Book received:");
             Debug.WriteLine(selectedBook.Title);
 
-            return View(selectedBook);
+            ViewModel.SelectedBook = selectedBook;
+
+            url = "rentaldata/listbooksforrental/" + id;
+            response = client.GetAsync(url).Result;
+            IEnumerable<RentalDto> RentedBooks = response.Content.ReadAsAsync<IEnumerable<RentalDto>>().Result;
+
+            ViewModel.RentedBooks = RentedBooks;
+
+            return View(ViewModel);
         }
 
         public ActionResult Error()

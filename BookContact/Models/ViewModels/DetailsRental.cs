@@ -7,5 +7,7 @@ namespace BookContact.Models.ViewModels
 {
     public class DetailsRental
     {
+        public RentalDto SelectedRental { get; set; }
+       
     }
 }

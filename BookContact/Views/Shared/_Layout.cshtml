@@ -34,6 +34,7 @@
         </div>
     </div>
     <div class="container body-content">
+        <div class="mt-5"></div>
         @RenderBody()
         <hr />
         <footer>
@@ -42,7 +43,7 @@
     </div>
 
     @Scripts.Render("~/bundles/jquery")
-    @*@Scripts.Render("~/bundles/bootstrap")*@
+    @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
 </html>
