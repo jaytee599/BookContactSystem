@@ -66,18 +66,18 @@ namespace BookContact.Controllers
 
             string url = "bookdata/findbook/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
-
             BookDto selectedBook = response.Content.ReadAsAsync<BookDto>().Result;
-            Debug.WriteLine("Book received:");
-            Debug.WriteLine(selectedBook.Title);
-
             ViewModel.SelectedBook = selectedBook;
 
-            url = "rentaldata/listbooksforrental/" + id;
+            url = "rentaldata/listrentalsforbooks/" + id;
             response = client.GetAsync(url).Result;
             IEnumerable<RentalDto> RentedBooks = response.Content.ReadAsAsync<IEnumerable<RentalDto>>().Result;
-
             ViewModel.RentedBooks = RentedBooks;
+
+            url = "reviewdata/listreviewsforbook/" + id;
+            response = client.GetAsync(url).Result;
+            IEnumerable<ReviewDto> BookReview = response.Content.ReadAsAsync<IEnumerable<ReviewDto>>().Result;
+            ViewModel.BookReview = BookReview;
 
             return View(ViewModel);
         }

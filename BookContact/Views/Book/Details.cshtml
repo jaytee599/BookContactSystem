@@ -1,4 +1,4 @@
-﻿@model BookContact.Models.BookDto
+﻿@model BookContact.Models.ViewModels.DetailsBook
 
 @{
     ViewBag.Title = "Details";
@@ -15,44 +15,69 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.AuthorName)
+            @Html.DisplayFor(model => model.SelectedBook.AuthorName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Title)
+            @Html.DisplayNameFor(model => model.SelectedBook.Title)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Title)
+            @Html.DisplayFor(model => model.SelectedBook.Title)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ISBN)
+            @Html.DisplayNameFor(model => model.SelectedBook.ISBN)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ISBN)
+            @Html.DisplayFor(model => model.SelectedBook.ISBN)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Price)
+            @Html.DisplayNameFor(model => model.SelectedBook.Price)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Price)
+            @Html.DisplayFor(model => model.SelectedBook.Price)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.BorrowingDate)
+            @Html.DisplayNameFor(model => model.SelectedBook.BorrowingDate)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.BorrowingDate)
+            @Html.DisplayFor(model => model.SelectedBook.BorrowingDate)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.BookId }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SelectedBook.BookId }) |
     @Html.ActionLink("Back to List", "List")
 </p>
+
+<div>
+    <h3>Rented Information</h3>
+    <ul>
+        @foreach (var book in Model.RentedBooks)
+        {
+            <li>
+                @*<a href="@book.BookId">@book.Title</a>*@
+                Rented At: <a href="@book.RentalDate">@book.RentalDate</a>
+                Due At: <a href="@book.DueDate">@book.DueDate</a>
+            </li>
+        }
+    </ul>
+</div>
+
+<div>
+    <h3>Reviews</h3>
+    <ul>
+        @foreach (var book in Model.BookReview)
+            {
+                <li>@book.Reviews</li>
+                <li>@book.Comments</li>
+            }
+    </ul>
+</div>

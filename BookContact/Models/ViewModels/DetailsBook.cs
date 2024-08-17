@@ -9,5 +9,6 @@ namespace BookContact.Models.ViewModels
     {
         public BookDto SelectedBook {  get; set; }
         public IEnumerable<RentalDto> RentedBooks { get; set;}
+        public IEnumerable<ReviewDto> BookReview {  get; set; }
     }
 }
