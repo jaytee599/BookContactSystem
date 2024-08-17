@@ -21,19 +21,20 @@ namespace BookContact.Controllers
         [ResponseType(typeof(ContactDto))]
         public IHttpActionResult ListContacts()
         {
-            List<Contact> contacts = db.Contacts.ToList();
-            List<ContactDto> contactDtos = new List<ContactDto>();
+            List<Contact> Contacts = db.Contacts.ToList();
+            List<ContactDto> ContactDtos = new List<ContactDto>();
 
-            contacts.ForEach(c => contactDtos.Add(new ContactDto()
+            Contacts.ForEach(c => ContactDtos.Add(new ContactDto()
             {
                 ContactId = c.ContactId,
                 Name = c.Name,
                 PhoneNumber = c.PhoneNumber,
                 Email = c.Email,
                 Address = c.Address,
+                AuthorName = c.Author.AuthorName
             }));
 
-            return Ok(contactDtos);
+            return Ok(ContactDtos);
         }
 
         // GET: api/ContactData/findContact/5
@@ -49,6 +50,7 @@ namespace BookContact.Controllers
                 PhoneNumber = contact.PhoneNumber,
                 Email = contact.Email,
                 Address = contact.Address,
+                AuthorName = contact.Author.AuthorName
             };
             if (contact == null)
             {

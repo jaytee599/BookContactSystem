@@ -35,6 +35,7 @@ namespace BookContact.Controllers
             string url = "contactdata/listcontacts";
             HttpResponseMessage response = client.GetAsync(url).Result;
             IEnumerable<ContactDto> contacts = response.Content.ReadAsAsync<IEnumerable<ContactDto>>().Result;
+
             return View(contacts);
         }
 
@@ -57,21 +58,10 @@ namespace BookContact.Controllers
         public ActionResult New()
         {
             string url = "authordata/listauthors";
-            string urlRental = "rentaldata/listrentals";
             HttpResponseMessage response = client.GetAsync(url).Result;
-            HttpResponseMessage rentalResponse = client.GetAsync(urlRental).Result;
-            IEnumerable<AuthorDto> AuthorOptions = response.Content.ReadAsAsync<IEnumerable<AuthorDto>>().Result;
-            IEnumerable<RentalDto> RentalOptions = rentalResponse.Content.ReadAsAsync<IEnumerable<RentalDto>>().Result;
+            IEnumerable<AuthorDto> AuthorOptions = response.Content.ReadAsAsync<IEnumerable<AuthorDto>>().Result; 
 
-            var contactDto = new ContactDto();
-            var viewModel = new DetailsContact
-            {
-                Contact = contactDto,
-                AuthorOption = AuthorOptions,
-                RentalOption = RentalOptions
-            };
-
-            return View(viewModel);
+            return View(AuthorOptions);
         }
 
         // POST: Contact/Create
