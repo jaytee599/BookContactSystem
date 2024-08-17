@@ -31,13 +31,13 @@ Get a Single Rental
 curl https://localhost:44324/api/rentaldata/findrental/{id}
 
 Add a new Author 
-curl https://localhost:44324/api/authordata/addauthor
+curl -H "Content-Type:application/json" -d @author.json https://localhost:44324/api/authordata/addauthor
 
 Add a new Book 
-curl https://localhost:44324/api/bookdata/addbook
+curl -H "Content-Type:application/json" -d @book.json https://localhost:44324/api/bookdata/addbook
 
 Add a new Rental 
-curl https://localhost:44324/api/rentaldata/addrental
+curl -H "Content-Type:application/json" -d @rental.json https://localhost:44324/api/rentaldata/addrental
 
 Delete an Author 
 curl -d "" https://localhost:44324/api/authordata/deleteauthor/{id}
@@ -49,10 +49,10 @@ Delete a Rental
 curl -d "" https://localhost:44324/api/rentaldata/deleterental/{id}
 
 Update an Author 
-curl -H https://localhost:44324/api/authordata/updateauthor/{id}
+curl -H "Content-Type:application/json" -d @author.json https://localhost:44324/api/authordata/updateauthor/{id}
 
 Update a Book 
-curl -H https://localhost:44324/api/bookdata/updatebook/{id}
+curl -H "Content-Type:application/json" -d @book.json https://localhost:44324/api/bookdata/updatebook/{id}
 
 Update a Rental 
-curl -H https://localhost:44324/api/rentaldata/updaterental/{id}
+curl -H "Content-Type:application/json" -d @rental.json https://localhost:44324/api/rentaldata/updaterental/{id}
